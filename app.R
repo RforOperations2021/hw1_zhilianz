@@ -83,6 +83,7 @@ server <- function(input, output) {
             
         })
         
+        #Generate table output based on how many sample seleted by user
         output$table = DT::renderDataTable(
             if (input$table){
                 DT::datatable(data = selected_data,
@@ -94,7 +95,7 @@ server <- function(input, output) {
     })
     
     
-    
+    #Allow users to download data from the shiny app
     output$download <- downloadHandler(
         filename = "data.csv",
         content = function(file) {
